@@ -27,5 +27,7 @@ fi
 if [ -n "$ICECAST_MAX_SOURCES" ]; then
     sed -i "s/<sources>[^<]*<\/sources>/<sources>$ICECAST_MAX_SOURCES<\/sources>/g" /etc/icecast.xml
 fi
-
+if [ -n "$ICECAST_LOG_LEVEL" ]; then
+    sed -i "s/<loglevel>[^<]*<\/loglevel>/<loglevel>$ICECAST_LOG_LEVEL<\/loglevel>/g" /etc/icecast.xml
+fi
 exec "$@"
